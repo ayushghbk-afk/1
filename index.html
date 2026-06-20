@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satya Vishwakarma · Video Editor & Motion Graphics Designer</title>
+
+    <!-- Google Fonts: Inter + Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight: #0a0e1a;
+            --charcoal: #111827;
+            --dark-card: #151f2e;
+            --cyan: #00d4ff;
+            --purple: #a855f7;
+            --cyan-glow: rgba(0, 212, 255, 0.25);
+            --purple-glow: rgba(168, 85, 247, 0.20);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--midnight);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--midnight);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--cyan);
+            border-radius: 8px;
+        }
+
+        /* ===== UTILITY ===== */
+        .section-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            background: rgba(0, 212, 255, 0.10);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            padding: 4px 14px;
+            border-radius: 100px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-sub {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 680px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            border-radius: 4px;
+            margin-top: 6px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--cyan), #00a6d9);
+            color: #0a0e1a;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 24px rgba(0, 212, 255, 0.30);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 36px rgba(0, 212, 255, 0.45);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 100px;
+            border: 1.5px solid rgba(255, 255, 255, 0.20);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-secondary:hover {
+            border-color: var(--cyan);
+            background: rgba(0, 212, 255, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-cyan {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 100px;
+            border: 1.5px solid var(--cyan);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-outline-cyan:hover {
+            background: rgba(0, 212, 255, 0.08);
+            box-shadow: 0 0 24px rgba(0, 212, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* ===== NAV ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 18px 0;
+            background: rgba(10, 14, 26, 0.80);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: var(--transition);
+        }
+        .navbar.scrolled {
+            background: rgba(10, 14, 26, 0.94);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+        }
+        .nav-brand span {
+            color: var(--cyan);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cyan);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: var(--cyan);
+            color: #0a0e1a !important;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 600 !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .nav-cta:hover {
+            background: #00e5ff !important;
+            color: #0a0e1a !important;
+        }
+
+        /* Mobile hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--text-primary);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 100px;
+            padding: 6px 18px 6px 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--cyan);
+            width: fit-content;
+            letter-spacing: 0.3px;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #22d3ee;
+            border-radius: 50%;
+            animation: pulse-dot 1.8s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-tagline {
+            font-size: clamp(1rem, 1.4vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 520px;
+            line-height: 1.7;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .hero-stats .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-stats .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+        }
+        .hero-stats .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Hero visual (right side) */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-visual .profile-ring {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(168, 85, 247, 0.08));
+            border: 1.5px solid rgba(0, 212, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 12px;
+        }
+        .hero-visual .profile-ring img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background: var(--charcoal);
+        }
+        .hero-visual .ring-glow {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent, var(--cyan), var(--purple), transparent);
+            opacity: 0.20;
+            animation: spin-ring 12s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes spin-ring {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .hero-visual .floating-badge {
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            background: rgba(10, 14, 26, 0.90);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            border-radius: var(--radius-sm);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--cyan);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40);
+            animation: float-badge 3s ease-in-out infinite;
+        }
+        .hero-visual .floating-badge i {
+            font-size: 1rem;
+        }
+        @keyframes float-badge {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 80px 0;
+            background: var(--charcoal);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .about-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 8px;
+        }
+        .pillar {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 24px 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .pillar:hover {
+            border-color: rgba(0, 212, 255, 0.20);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+        }
+        .pillar .icon {
+            font-size: 2rem;
+            color: var(--cyan);
+            margin-bottom: 10px;
+        }
+        .pillar h4 {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .pillar p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 80px 0;
+        }
+        .services-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .services-header .section-sub {
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 28px 22px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            border-color: rgba(0, 212, 255, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.30);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card .icon {
+            font-size: 1.8rem;
+            color: var(--cyan);
+            margin-bottom: 12px;
+        }
+        .service-card h4 {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio {
+            padding: 80px 0;
+            background: var(--charcoal);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 212, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+        .project-card .thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--dark-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            overflow: hidden;
+        }
+        .project-card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-card .body {
+            padding: 22px 24px 26px;
+        }
+        .project-card .body h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .project-card .body p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== TOOLKIT ===== */
+        .toolkit {
+            padding: 80px 0;
+        }
+        .toolkit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .toolkit-skills h3,
+        .toolkit-software h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skills-list .skill-tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .skills-list .skill-tag:hover {
+            border-color: var(--cyan);
+            color: var(--text-primary);
+            background: rgba(0, 212, 255, 0.05);
+        }
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .software-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 16px 12px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .software-item:hover {
+            border-color: rgba(0, 212, 255, 0.15);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .software-item .icon {
+            font-size: 1.6rem;
+            color: var(--cyan);
+            margin-bottom: 4px;
+        }
+        .software-item .name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .software-item .label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Toolkit stats */
+        .toolkit-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .toolkit-stats .stat-item {
+            text-align: center;
+        }
+        .toolkit-stats .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .toolkit-stats .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .experience {
+            padding: 80px 0;
+            background: var(--charcoal);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .experience-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .exp-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 28px 26px;
+            transition: var(--transition);
+        }
+        .exp-item:hover {
+            border-color: rgba(0, 212, 255, 0.12);
+            transform: translateY(-4px);
+        }
+        .exp-item .icon {
+            font-size: 1.4rem;
+            color: var(--cyan);
+            margin-bottom: 8px;
+        }
+        .exp-item h4 {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+        .exp-item p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Client types */
+        .clients-section {
+            margin-top: 48px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .clients-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .client-type {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 24px 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .client-type:hover {
+            border-color: rgba(0, 212, 255, 0.12);
+            transform: translateY(-3px);
+        }
+        .client-type .icon {
+            font-size: 1.8rem;
+            color: var(--purple);
+            margin-bottom: 8px;
+        }
+        .client-type h5 {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .client-type p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 4px 0 0;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 80px 0 40px;
+        }
+        .contact-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 56px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .contact-wrapper h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        .contact-wrapper p {
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 32px;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 2;
+        }
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .contact-method:hover {
+            color: var(--text-primary);
+        }
+        .contact-method i {
+            font-size: 1.2rem;
+            color: var(--cyan);
+            width: 24px;
+        }
+        .contact-method a {
+            color: inherit;
+        }
+        .contact-method a:hover {
+            color: var(--cyan);
+        }
+        .contact .btn-primary {
+            font-size: 1.05rem;
+            padding: 16px 44px;
+            position: relative;
+            z-index: 2;
+        }
+        .contact-footer-note {
+            margin-top: 32px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 2;
+        }
+        .contact-footer-note i {
+            color: var(--cyan);
+            margin: 0 4px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 24px 0 32px;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: 20px;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-socials a {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        .footer-socials a:hover {
+            color: var(--cyan);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content {
+                align-items: center;
+            }
+            .hero-tagline {
+                max-width: 100%;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-visual .profile-ring {
+                max-width: 280px;
+            }
+            .hero-visual .floating-badge {
+                right: 0%;
+                bottom: 5%;
+                font-size: 0.7rem;
+                padding: 8px 14px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .about-pillars {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .toolkit-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                padding: 40px 24px;
+            }
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 26, 0.96);
+                backdrop-filter: blur(16px);
+                padding: 20px 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .about-pillars {
+                grid-template-columns: 1fr;
+            }
+            .clients-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .software-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .toolkit-stats {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-visual .profile-ring {
+                max-width: 200px;
+            }
+            .hero-visual .floating-badge {
+                right: 0%;
+                bottom: 0%;
+                font-size: 0.65rem;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                padding: 28px 16px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* ===== ANIMATIONS (scroll reveal) ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* staggered children */
+        .stagger>* {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .stagger.visible>*:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+        .stagger.visible>*:nth-child(2) {
+            transition-delay: 0.10s;
+        }
+        .stagger.visible>*:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+        .stagger.visible>*:nth-child(4) {
+            transition-delay: 0.20s;
+        }
+        .stagger.visible>*:nth-child(5) {
+            transition-delay: 0.25s;
+        }
+        .stagger.visible>*:nth-child(6) {
+            transition-delay: 0.30s;
+        }
+        .stagger.visible>*:nth-child(7) {
+            transition-delay: 0.35s;
+        }
+        .stagger.visible>*:nth-child(8) {
+            transition-delay: 0.40s;
+        }
+        .stagger.visible>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-clients.visible>*:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+        .stagger-clients.visible>*:nth-child(2) {
+            transition-delay: 0.10s;
+        }
+        .stagger-clients.visible>*:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+        .stagger-clients.visible>*:nth-child(4) {
+            transition-delay: 0.20s;
+        }
+        .stagger-clients.visible>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-clients>* {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="nav-brand">Satya<span>Vishwa</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#toolkit">Toolkit</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="dot"></span> Available for Freelance
+                    </div>
+                    <h1>
+                        Satya <span class="highlight">Vishwakarma</span>
+                    </h1>
+                    <p style="font-size:1.2rem; font-weight:600; color:var(--text-secondary);">
+                        Video Editor &amp; Motion Graphics Designer
+                    </p>
+                    <p class="hero-tagline">
+                        Create high-retention reels, cinematic edits, motion graphics, promo ads, and documentary-style videos that turn raw footage into engaging visual stories.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#" class="btn-primary">
+                            <i class="fas fa-play"></i> Watch Showreel
+                        </a>
+                        <a href="#portfolio" class="btn-secondary">
+                            <i class="fas fa-arrow-right"></i> View My Work
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Projects Delivered</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client Dedication</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Fast</span>
+                            <span class="stat-label">Turnaround</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="profile-ring">
+                        <div class="ring-glow"></div>
+                        <!-- REPLACE THIS WITH './images/hero.jpg' -->
+                        <img src="https://placehold.co/600x600/1a2332/00d4ff?text=Satya" alt="Satya Vishwakarma" />
+                    </div>
+                    <div class="floating-badge">
+                        <i class="fas fa-video"></i> 2+ Years Experience
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <span class="section-badge">About Me</span>
+                    <h2 class="section-title">Crafting Stories <br /><span class="highlight">Frame by Frame</span></h2>
+                    <div class="glow-line"></div>
+                    <p style="margin-top:18px;">
+                        I'm Satya Vishwa, a freelance Video Editor and Motion Graphics Designer with a passion for transforming raw footage into compelling visual narratives. I work with creators, brands, institutes, and businesses to produce content that captivates audiences and drives results.
+                    </p>
+                    <p>
+                        From social media reels to full-length cybersecurity documentaries — I bring technical precision, creative intuition, and cinematic sensibility to every project.
+                    </p>
+                </div>
+                <div class="about-pillars stagger reveal-right">
+                    <div class="pillar">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h4>Client-Focused</h4>
+                        <p>Every edit is crafted with your audience in mind</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="icon"><i class="fas fa-bolt"></i></div>
+                        <h4>Fast Turnaround</h4>
+                        <p>Efficient workflows without compromising quality</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="icon"><i class="fas fa-pen-fancy"></i></div>
+                        <h4>Creative Edge</h4>
+                        <p>Motion graphics that elevate your brand identity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header reveal">
+                <span class="section-badge">What I Do</span>
+                <h2 class="section-title">End-to-end video production <br /><span class="highlight">tailored for you</span></h2>
+                <p class="section-sub">Services designed for creators, brands, institutes, and businesses.</p>
+            </div>
+            <div class="services-grid stagger" id="servicesGrid">
+                <!-- 1 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fab fa-instagram"></i></div>
+                    <h4>Instagram Reels Editing</h4>
+                    <p>High-retention short-form edits with trending pacing, captions, and effects that stop the scroll.</p>
+                </div>
+                <!-- 2 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fab fa-youtube"></i></div>
+                    <h4>YouTube Editing</h4>
+                    <p>Engaging long-form video edits with dynamic cuts, b-roll, and retention-optimized storytelling.</p>
+                </div>
+                <!-- 3 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-film"></i></div>
+                    <h4>Motion Graphics</h4>
+                    <p>Custom animated graphics, lower thirds, title cards, and visual effects that elevate any video.</p>
+                </div>
+                <!-- 4 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                    <h4>Promo Videos</h4>
+                    <p>Compelling promotional and advertisement videos that convert viewers into customers.</p>
+                </div>
+                <!-- 5 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Cybersecurity Documentary</h4>
+                    <p>Cinematic documentary-style edits for tech, security, and educational content producers.</p>
+                </div>
+                <!-- 6 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-palette"></i></div>
+                    <h4>Color Grading</h4>
+                    <p>Professional color correction and cinematic grading to establish mood, tone, and brand consistency.</p>
+                </div>
+                <!-- 7 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-closed-captioning"></i></div>
+                    <h4>Animated Captions</h4>
+                    <p>Eye-catching animated subtitles and caption overlays that boost watch time and accessibility.</p>
+                </div>
+                <!-- 8 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-ad"></i></div>
+                    <h4>Social Media Ads</h4>
+                    <p>Scroll-stopping ad creatives for Facebook, Instagram, and YouTube campaigns that drive ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="portfolio-header reveal">
+                <span class="section-badge">Featured Work</span>
+                <h2 class="section-title">Selected <span class="highlight">Projects</span></h2>
+                <p class="section-sub" style="margin:0 auto;">A curated selection of recent work across industries and formats.</p>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal-left">
+                    <div class="thumb">
+                        <!-- REPLACE THIS WITH './images/project-1.jpg' -->
+                        <img src="https://placehold.co/800x450/1a2332/00d4ff?text=Cybersecurity+Doc" alt="Cybersecurity Documentary Reel" />
+                    </div>
+                    <div class="body">
+                        <h4>Cybersecurity Documentary Reel</h4>
+                        <p>A cinematic deep-dive into ethical hacking and digital security — featuring dramatic pacing, motion graphics, and investigative storytelling.</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card reveal-right">
+                    <div class="thumb">
+                        <!-- REPLACE THIS WITH './images/project-2.jpg' -->
+                        <img src="https://placehold.co/800x450/1a2332/a855f7?text=Motion+Explainer" alt="Motion Graphics Explainer" />
+                    </div>
+                    <div class="body">
+                        <h4>Motion Graphics Explainer</h4>
+                        <p>A cinematic deep-dive into ethical hacking and digital security — featuring dramatic pacing, motion graphics, and investigative storytelling.</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card reveal-left">
+                    <div class="thumb">
+                        <!-- REPLACE THIS WITH './images/project-3.jpg' -->
+                        <img src="https://placehold.co/800x450/1a2332/00d4ff?text=Instagram+Reel" alt="Instagram Reel Edit" />
+                    </div>
+                    <div class="body">
+                        <h4>Instagram Reel Edit</h4>
+                        <p>High-energy creator reel with trending audio sync, dynamic cuts, and animated captions — designed for maximum engagement.</p>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card reveal-right">
+                    <div class="thumb">
+                        <!-- REPLACE THIS WITH './images/project-4.jpg' -->
+                        <img src="https://placehold.co/800x450/1a2332/a855f7?text=Color+Grade" alt="Cinematic Color Grade" />
+                    </div>
+                    <div class="body">
+                        <h4>Cinematic Color Grade</h4>
+                        <p>A full-color grading reel showcasing teal-orange looks, moody film emulation, and brand-consistent color pipelines for clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TOOLKIT ===== -->
+    <section class="toolkit" id="toolkit">
+        <div class="container">
+            <div class="reveal" style="text-align:center; margin-bottom:48px;">
+                <span class="section-badge">Toolkit</span>
+                <h2 class="section-title">My <span class="highlight">Creative Arsenal</span></h2>
+            </div>
+            <div class="toolkit-grid">
+                <div class="toolkit-skills reveal-left">
+                    <h3>Core Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Video Editing &amp; Post-Production</span>
+                        <span class="skill-tag">Motion Graphics &amp; VFX</span>
+                        <span class="skill-tag">Color Grading &amp; LUT Design</span>
+                        <span class="skill-tag">Short-Form Content Strategy</span>
+                        <span class="skill-tag">Documentary Storytelling</span>
+                    </div>
+                    <div class="toolkit-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Fast</div>
+                            <div class="stat-label">Turnaround</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Dedication</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toolkit-software reveal-right">
+                    <h3>Software &amp; Tools</h3>
+                    <div class="software-grid">
+                        <div class="software-item">
+                            <div class="icon"><i class="fas fa-video"></i></div>
+                            <div class="name">Premiere Pro</div>
+                            <div class="label">Primary editing NLE</div>
+                        </div>
+                        <div class="software-item">
+                            <div class="icon"><i class="fas fa-paint-bucket"></i></div>
+                            <div class="name">DaVinci Resolve</div>
+                            <div class="label">Color grading &amp; finishing</div>
+                        </div>
+                        <div class="software-item">
+                            <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="name">CapCut / Reels</div>
+                            <div class="label">Fast social-first edits</div>
+                        </div>
+                        <div class="software-item">
+                            <div class="icon"><i class="fas fa-magic"></i></div>
+                            <div class="name">After Effects</div>
+                            <div class="label">Motion graphics &amp; VFX</div>
+                        </div>
+                        <div class="software-item">
+                            <div class="icon"><i class="fas fa-image"></i></div>
+                            <div class="name">Photoshop</div>
+                            <div class="label">Thumbnails &amp; assets</div>
+                        </div>
+                        <div class="software-item">
+                            <div class="icon"><i class="fas fa-microphone"></i></div>
+                            <div class="name">Audition / Audacity</div>
+                            <div class="label">Audio cleanup &amp; mastering</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="experience-header reveal">
+                <span class="section-badge">Experience</span>
+                <h2 class="section-title">2+ Years <span class="highlight">Creative Software Training</span></h2>
+                <p class="section-sub" style="margin:0 auto;">A track record of delivering high-quality video content across diverse industries and platforms.</p>
+            </div>
+            <div class="experience-grid">
+                <div class="exp-item reveal-left">
+                    <div class="icon"><i class="fas fa-cut"></i></div>
+                    <h4>Freelance Video Editor</h4>
+                    <p>End-to-end editing for creators and brands — from raw footage to polished, retention-optimized final cuts.</p>
+                </div>
+                <div class="exp-item reveal-right">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Motion Graphics Designer</h4>
+                    <p>Custom motion design, kinetic typography, and animated assets that strengthen brand identity and viewer engagement.</p>
+                </div>
+                <div class="exp-item reveal-left">
+                    <div class="icon"><i class="fas fa-document"></i></div>
+                    <h4>Documentary Editor</h4>
+                    <p>Cinematic long-form storytelling with interview cutting, narrative pacing, and immersive sound design.</p>
+                </div>
+                <div class="exp-item reveal-right">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Promo Specialist</h4>
+                    <p>High-converting ad creatives and promotional videos that drive results across social and digital platforms.</p>
+                </div>
+            </div>
+
+            <!-- Client Types -->
+            <div class="clients-section reveal">
+                <h3>Who I Partner With</h3>
+                <div class="clients-grid stagger-clients">
+                    <div class="client-type">
+                        <div class="icon"><i class="fas fa-microphone-alt"></i></div>
+                        <h5>Creators &amp; Influencers</h5>
+                        <p>YouTube, Instagram, podcasters, and personal brands scaling their content.</p>
+                    </div>
+                    <div class="client-type">
+                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h5>Institutes &amp; Educators</h5>
+                        <p>Online courses, coaching, and educational institutes needing cinematic promos.</p>
+                    </div>
+                    <div class="client-type">
+                        <div class="icon"><i class="fas fa-building"></i></div>
+                        <h5>Brands &amp; Businesses</h5>
+                        <p>Polished video ads, product videos, and social content that converts.</p>
+                    </div>
+                    <div class="client-type">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <h5>Tech &amp; Cybersecurity</h5>
+                        <p>Documentary-style explainers and product demos for tech startups and security firms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper reveal">
+                <span class="section-badge" style="margin-bottom:8px;">Let's Connect</span>
+                <h2>Ready to Elevate Your <span class="highlight">Content?</span></h2>
+                <p>
+                    Whether you need a single reel, a full YouTube series, or a complete brand video package — let's talk about your project and what great editing can do for your audience.
+                </p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:satyivishwa@gmail.com">satyivishwa@gmail.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/919839891165" target="_blank">+91 9839891165</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/919792910043" target="_blank">+91 9792910043</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-instagram"></i>
+                        <a href="#" target="_blank">Instagram</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-youtube"></i>
+                        <a href="#" target="_blank">YouTube</a>
+                    </div>
+                </div>
+                <a href="mailto:satyivishwa@gmail.com" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Hire Me Now
+                </a>
+                <div class="contact-footer-note">
+                    <i class="fas fa-clock"></i> Typically responds within 24 hours · Open to long-term collaborations
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Satya Vishwakarma. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="mailto:satyivishwa@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ---- Hamburger toggle ----
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close nav on link click (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ---- Navbar scroll effect ----
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ---- Scroll Reveal (Intersection Observer) ----
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger, .stagger-clients');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // If it's a stagger container, also mark children visible via CSS
+                    if (entry.target.classList.contains('stagger') || entry.target.classList.contains(
+                            'stagger-clients')) {
+                        // The CSS will handle children via .visible class on parent
+                    }
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -20px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Also observe service cards inside stagger grid
+        document.querySelectorAll('.stagger').forEach(container => {
+            // The container itself gets observed; children get styled via CSS
+        });
+
+        // ---- Smooth anchor scroll (for nav links) ----
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        console.log('🚀 Satya Vishwakarma Portfolio ready.');
+        console.log('📸 Image Setup Checklist:');
+        console.log('  1. Create a folder named "images" in the root directory.');
+        console.log('  2. Save hero photo as "hero.jpg"');
+        console.log('  3. Save project thumbnails as "project-1.jpg" through "project-4.jpg"');
+        console.log('  4. Update src attributes in the HTML to point to your local files.');
+        console.log('  5. Deploy to GitHub Pages as a static site.');
+    </script>
+
+</body>
+</html>
